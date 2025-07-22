@@ -116,3 +116,16 @@ uint32_t FSM::getLastHeartbeat() const{
 void FSM::setLastHeartbeat(uint32_t heartbeat){
     lastHeartbeat = heartbeat;
 }
+
+//Implementasi dari fungsi start()
+//Memulai FSM dengan menjalankan loop sampai currentState menjadi STOPPED
+//Loop ini memeriksa currentState setiap 1000 milidetik, dan memanggil fungsi update() 
+void FSM::start(){
+    while (currentState != SystemState::STOPPED){
+        uint32_t currentTime = millis();
+
+        if (currentTime - lastHeartbeat >= delay){
+            update();
+        }
+    }
+}
