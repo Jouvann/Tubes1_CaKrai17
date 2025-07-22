@@ -271,3 +271,22 @@ void FSM::performProcess(){
         }
     }
 }
+
+
+//Implementasi dari fungsi performMovement()
+//Fungsi ini dipanggil ketika FSM berada dalam state MOVEMENT.
+//Jika sudah melakukan 3 pergerakan, FSM akan beralih ke state SHOOTING.
+//Jika belum, FSM akan kembali ke state IDLE.
+void FSM::performMovement(){
+    cout << "Moving..." << endl;
+    moveCount++;
+
+    if (moveCount >= 3){
+        cout << "Move count reached 3, entering SHOOTING mode..." << endl;
+        transitionToState(SystemState::SHOOTING);
+    }
+    else {
+        cout << "Move count is " << moveCount << ", returning to IDLE state..." << endl;
+        transitionToState(SystemState::IDLE);
+    }
+}
