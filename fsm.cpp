@@ -290,3 +290,14 @@ void FSM::performMovement(){
         transitionToState(SystemState::IDLE);
     }
 }
+
+//Implementasi dari fungsi performShooting()
+//Fungsi ini dipanggil ketika FSM berada dalam state SHOOTING.
+//Mencetak "Shooting...", mengatur moveCount ke 0, dan beralih ke state IDLE.
+//Juga mengupdate lastHeartbeat ke waktu saat ini dalam milidetik.
+void FSM::performShooting(){
+    cout << "Shooting..." << endl;
+    moveCount = 0;
+    transitionToState(SystemState::IDLE);
+}
+
