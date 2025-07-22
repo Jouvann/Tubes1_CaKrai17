@@ -203,7 +203,7 @@ void FSM::printStatus(){
 void FSM::printStateHistory(){
     cout << "=========State History=========" << endl;
     for (const auto &entry : stateHistory){
-        SystemState state = entry.fitst;
+        SystemState state = entry.first;
         uint32_t time = entry.second;
         cout << stateToString(state) << "at " << time << " ms" << endl;
     }
@@ -219,4 +219,55 @@ void FSM::performInit(){
 
     cout << "Initializing system..." << endl;
     printStatus(); // Print the current status of the FSM
+}
+
+
+//Implementasi dari fungsi performProcess()
+//Fungsi ini dipanggil ketika FSM berada dalam state IDLE.
+//Fungsi ini menampilkan menu untuk memilih aksi yang dapat dilakukan:
+// - Menampilkan status dan riwayat state (IDLE)
+// - Melakukan pergerakan (MOVEMENT)
+// - Melakukan penembakan (SHOOTING)
+// - Melakukan perhitungan (CALCULATION)
+//Pengguna diminta untuk memilih aksi dengan memasukkan angka sesuai pilihan.
+void FSM::performProcess(){
+    while (currentState == SystemState::IDLE){
+        //Print Menu untuk memilih aksi
+        cout << "============Menu============" << endl;
+        cout << "Ready for commands. Choose an action:" << endl;
+        cout << "1. IDLE - Display status and state history" << endl;
+        cout << "2. MOVEMENT - Move the robot" << endl;
+        cout << "3. SHOOTING - Shoor the robot" << endl;
+        cout << "4. CALCULATION - Perform calculations" << endl;
+
+        int choice;
+        cin >> choice;
+        cout << endl;
+
+        //Pilih aksi berdasarkan input user
+        switch (choice){
+            case 1:
+                cout << "Displaying status and state history..." << endl;
+                cout << endl;
+                printStatus();
+                cout << endl;
+                printStateHistory();
+                break;
+            case 2:
+                cout << "Moving..." << endl;
+                transitionToState(SystemState::MOVEMENT);
+                break;
+            case 3:
+                cout << "Shooting..." << endl;
+                transitionToState(SystemState::SHOOTING);
+                break;
+            case 4:
+                cout << "Performing Calculation..." << endl;
+                transitionToState(SystemState::CALCULATION);
+                break;
+            default: 
+                cout << "Invalid choice. Staying In IDLE." << endl;
+                break;; 
+        }
+    }
 }

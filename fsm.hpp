@@ -20,7 +20,7 @@ enum class SystemState {
 };
 
 uint32_t millis();
-string stateToString(SystemState state)
+string stateToString(SystemState state);
 
 class FSM {
 
