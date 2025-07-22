@@ -95,20 +95,24 @@ int FSM::getMoveCount() const{
 
 //Implementasi dari fungsi addStateToHistory(SystemState state, uint32_t time)
 //Menambahkan pasangan state dan waktu ke vektor stateHistory
- void FSM::addStateToHistory(SystemState state, uint32_t time){
+void FSM::addStateToHistory(SystemState state, uint32_t time){
     stateHistory.push_back({state, time});
- }
+}
 
- //Implementasi dari fungsi getStateHistory() const
- //Mengembalikan salinan dari vektor stateHistory
- vector<pair<SystemState, uint32_t>> FSM::getStateHistory() const{
+//Implementasi dari fungsi getStateHistory() const
+//Mengembalikan salinan dari vektor stateHistory
+vector<pair<SystemState, uint32_t>> FSM::getStateHistory() const{
     return stateHistory;
- }
+}
 
- //Implementasi dari fungsi getLastHeartbeat() const
+//Implementasi dari fungsi getLastHeartbeat() const
 //Mengembalikan nilai lastHeartbeat dari FSM
- uint32_t FSM::getLastHeartbeat() const{
+uint32_t FSM::getLastHeartbeat() const{
     return lastHeartbeat;
- }
+}
 
- 
+//Implementasi dari fungsi setLastHeartbeat(uint32_t heartbeat)
+//Mengatur nilai lastHeartbeat dari FSM ke nilai yang diberikan parameter
+void FSM::setLastHeartbeat(uint32_t heartbeat){
+    lastHeartbeat = heartbeat;
+}
