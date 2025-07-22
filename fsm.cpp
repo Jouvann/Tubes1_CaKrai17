@@ -197,3 +197,15 @@ void FSM::printStatus(){
     cout << "Error Count    : " << errorCount << endl;
     cout << "===========================" << endl;
 }
+
+//Implementasi dari fungsi printStateHistory()
+//Mencetak riwayat state dari FSM, menunjukkan setiap state dan waktu saat state tersebut dari vektor stateHistory
+void FSM::printStateHistory(){
+    cout << "=========State History=========" << endl;
+    for (const auto &entry : stateHistory){
+        SystemState state = entry.fitst;
+        uint32_t time = entry.second;
+        cout << stateToString(state) << "at " << time << " ms" << endl;
+    }
+    cout << "===============================" << endl;
+}
