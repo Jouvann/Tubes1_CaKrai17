@@ -196,6 +196,7 @@ void FSM::printStatus(){
     cout << "Delay          : " << delay << " ms" << endl;
     cout << "Error Count    : " << errorCount << endl;
     cout << "===========================" << endl;
+    cout << endl;
 }
 
 //Implementasi dari fungsi printStateHistory()
@@ -205,9 +206,10 @@ void FSM::printStateHistory(){
     for (const auto &entry : stateHistory){
         SystemState state = entry.first;
         uint32_t time = entry.second;
-        cout << stateToString(state) << "at " << time << " ms" << endl;
+        cout << stateToString(state) << " at " << time << " ms" << endl;
     }
     cout << "===============================" << endl;
+    cout << endl;
 }
 
 //Implementasi dari fungsi performInit()
@@ -233,11 +235,12 @@ void FSM::performInit(){
 void FSM::performProcess(){
     while (currentState == SystemState::IDLE){
         //Print Menu untuk memilih aksi
+        cout << endl;
         cout << "============Menu============" << endl;
         cout << "Ready for commands. Choose an action:" << endl;
         cout << "1. IDLE - Display status and state history" << endl;
         cout << "2. MOVEMENT - Move the robot" << endl;
-        cout << "3. SHOOTING - Shoor the robot" << endl;
+        cout << "3. SHOOTING - Shoot the robot" << endl;
         cout << "4. CALCULATION - Perform calculations" << endl;
 
         int choice;
