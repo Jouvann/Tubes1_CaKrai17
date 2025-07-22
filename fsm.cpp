@@ -104,3 +104,11 @@ int FSM::getMoveCount() const{
  vector<pair<SystemState, uint32_t>> FSM::getStateHistory() const{
     return stateHistory;
  }
+
+ //Implementasi dari fungsi getLastHeartbeat() const
+//Mengembalikan nilai lastHeartbeat dari FSM
+ uint32_t FSM::getLastHeartbeat() const{
+    return lastHeartbeat;
+ }
+
+ 
