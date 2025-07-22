@@ -92,3 +92,9 @@ void FSM::setMoveCount(int count){
 int FSM::getMoveCount() const{
     return moveCount;
 }
+
+//Implementasi dari fungsi addStateToHistory(SystemState state, uint32_t time)
+//Menambahkan pasangan state dan waktu ke vektor stateHistory
+ void FSM::addStateToHistory(SystemState state, uint32_t time){
+    stateHistory.push_back({state, time});
+ }
