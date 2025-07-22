@@ -186,6 +186,14 @@ void FSM::update(){
     addStateToHistory(currentState, lastHeartbeat);
 }
 
+
+//Implementasi dari fungsi printStatus()
+//Mencetak status saat ini dari FSM, termasuk currentState, lastHeartbeat, delay, dan errorCount
 void FSM::printStatus(){
-    
+    cout << "=========FSM Status=========" << endl;
+    cout << "Current State  : " << stateToString(currentState) << endl;
+    cout << "Last Heartbeat : " << lastHeartbeat << " ms" << endl;
+    cout << "Delay          : " << delay << " ms" << endl;
+    cout << "Error Count    : " << errorCount << endl;
+    cout << "===========================" << endl;
 }
