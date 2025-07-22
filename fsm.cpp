@@ -301,3 +301,20 @@ void FSM::performShooting(){
     transitionToState(SystemState::IDLE);
 }
 
+//Implementasi dari fungsi performCalculation()
+//Fungsi ini dipanggil ketika FSM berada dalam state CALCULATION.
+//Mencetak "Performing calculation..."
+//Jika moveCount adalah 0, FSM akan beralih ke state ERROR.
+//Jika moveCount lebih dari 0, FSM akan kembali ke state IDLE.
+void FSM::performCalculation(){
+    cout << "Performing calculation..." << endl;
+    if (moveCount == 0){
+        cout << "No movements performed, transitioning to ERROR state..." << endl;
+        transitionToState(SystemState::ERROR);
+    }
+    else if (moveCount > 0){
+        cout << "Movements performed, returning to IDLE state..." << endl;
+        transitionToState(SystemState::IDLE);
+    }
+}
+
