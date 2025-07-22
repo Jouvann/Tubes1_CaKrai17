@@ -318,3 +318,24 @@ void FSM::performCalculation(){
     }
 }
 
+ 
+//Implementasi dari fungsi performErrorHandling()
+//Fungsi ini dipanggil ketika FSM berada dalam state ERROR.
+// Mencetak "Error occurred, performing error handling..."
+//Menginkrementasi errorCount, jika errorCount melebihi 3, FSM akan beralih ke state STOPPED.
+//Jika tidak, FSM akan kembali ke state IDLE.
+void FSM::performErrorHandling(){
+    cout << "Error occurred, performing error handling..." << endl;
+
+    errorCount++;
+
+    if (errorCount > 3) {
+        cout << "Error count exceeded 3, transitioning to STOPPED state..." << endl;
+        transitionToState(SystemState::STOPPED);
+    }
+    else {
+        cout << "Error count is " << errorCount << ", returning to IDLE state..." << endl;
+        transitionToState(SystemState::IDLE);
+    }
+}
+
