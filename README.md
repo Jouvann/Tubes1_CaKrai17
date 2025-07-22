@@ -1,4 +1,6 @@
 ﻿# Tubes1_CaKrai17 - Simulasi Finite State Machine (FSM)
+ 
+>DISCLAIMER : Dipercantik Oleh Jipiti
 
 ## 📌 Deskripsi Proyek
 
