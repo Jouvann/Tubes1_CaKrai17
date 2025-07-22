@@ -98,3 +98,9 @@ int FSM::getMoveCount() const{
  void FSM::addStateToHistory(SystemState state, uint32_t time){
     stateHistory.push_back({state, time});
  }
+
+ //Implementasi dari fungsi getStateHistory() const
+ //Mengembalikan salinan dari vektor stateHistory
+ vector<pair<SystemState, uint32_t>> FSM::getStateHistory() const{
+    return stateHistory;
+ }
