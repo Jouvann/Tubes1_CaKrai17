@@ -16,3 +16,6 @@ $(TARGET): $(OBJS)
 #clean rule
 clean:
 	rm -f $(OBJS) $(TARGET) *.o
+
+#guard against multiple inclusions
+.PHONY: all clean
