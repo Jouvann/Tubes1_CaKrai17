@@ -1,0 +1,11 @@
+# Ignore compiled binaries
+*.exe
+*.o
+fsm_test
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore Mac/Linux/Windows system junk
+.DS_Store
+Thumbs.db
