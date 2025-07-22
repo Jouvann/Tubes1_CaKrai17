@@ -339,3 +339,10 @@ void FSM::performErrorHandling(){
     }
 }
 
+//Implementasi dari fungsi shutdown()
+//Fungsi ini dipanggil ketika FSM berada dalam state STOPPED.
+// Mencetak "System stopped, shutting down..." dan menghapus semua elemen dari vektor stateHistory.
+void FSM::shutdown(){
+    cout << "System stopped, shutting down..." << endl;
+    stateHistory.clear();
+}
