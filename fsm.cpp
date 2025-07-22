@@ -209,3 +209,14 @@ void FSM::printStateHistory(){
     }
     cout << "===============================" << endl;
 }
+
+//Implementasi dari fungsi performInit()
+//Mengatur currentState ke IDLE, mengatur delay jadi 1000ms dan mengatur lastHeartbeat ke waktu saat ini dalam milidetik.
+// Mencetak "Initializing system..." dan memanggil printStatus() untuk menampilkan status awal FSM.
+void FSM::performInit(){
+    setDelay(1000); // Set default delay to 1000 ms
+    transitionToState(SystemState::IDLE); // Transition to IDLE state
+
+    cout << "Initializing system..." << endl;
+    printStatus(); // Print the current status of the FSM
+}
