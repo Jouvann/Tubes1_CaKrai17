@@ -10,6 +10,20 @@ uint32_t millis(){
     return duration_cast<milliseconds>(now - start).count();
 }
 
+//Fungsi untuk mengubah SystemState menjadi string
+//Digunakan untuk mencetak nama state dalam fungsi printStatus() dan printStateHistory()
+string stateToString(SystemState state){
+    switch (state){
+        case SystemState::INIT : return "INIT";
+        case SystemState::IDLE : return "IDLE";
+        case SystemState::MOVEMENT : return "MOVEMENT";
+        case SystemState::SHOOTING : return "SHOOTING";
+        case SystemState::CALCULATION : return "CALCULATION";
+        case SystemState::ERROR : return "ERROR";
+        case SystemState::STOPPED : return "STOPPED";
+        default : return "UNKNOWN";
+    }
+}
 
 //Implementasi dari konstruktor FSM default
 //Menginisialisasi currentState, lastHeartbeat, errorCount, delay, moveCount = 0,
@@ -159,7 +173,7 @@ void FSM::update(){
         case SystemState::CALCULATION:
             performCalculation();
             break;
-        case SystemSteate::ERROR:
+        case SystemState::ERROR:
             performErrorHandling();
             break;
         case SystemState::STOPPED:
@@ -172,3 +186,6 @@ void FSM::update(){
     addStateToHistory(currentState, lastHeartbeat);
 }
 
+void FSM::printStatus(){
+    
+}
