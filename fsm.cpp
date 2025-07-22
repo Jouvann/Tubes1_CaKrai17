@@ -129,3 +129,46 @@ void FSM::start(){
         }
     }
 }
+
+
+//Implementasi dari fungsi update()
+//Memeriksa currentState dan memanggil fungsi yang sesuai berdasarkan state tersebut
+// - Jika currentState adalah INIT, panggil performInit()
+// - Jika currentState adalah IDLE, panggil performProcess()
+// - Jika currentState adalah MOVEMENT, panggil performMovement()
+// - Jika currentState adalah SHOOTING, panggil performShooting()
+// - Jika currentState adalah CALCULATION, panggil performCalculation()
+// - Jika currentState adalah ERROR, panggil performErrorHandling()
+// - Jika currentState adalah STOPPED, panggil shutdown()
+//Setelah memanggil fungsi yang sesuai, update lastHeartbeat dengan waktu saat ini dalam milidetik
+//Dan tambahkan pasangan currentState dan lastHeartbeat ke vektor stateHistory
+void FSM::update(){
+    switch (currentState) {
+        case SystemState::INIT:
+            performInit();
+            break;
+        case SystemState::IDLE:
+            performProcess();
+            break; 
+        case SystemState::MOVEMENT:
+            performMovement();
+            break;
+        case SystemState::SHOOTING:
+            performShooting();
+            break;
+        case SystemState::CALCULATION:
+            performCalculation();
+            break;
+        case SystemSteate::ERROR:
+            performErrorHandling();
+            break;
+        case SystemState::STOPPED:
+            shutdown();
+            break;
+    }
+    // Update last heartbeat time
+    lastHeartbeat = millis();
+    // Add current state and time to history vector
+    addStateToHistory(currentState, lastHeartbeat);
+}
+
